@@ -11,5 +11,5 @@ Ling-Qi Zhang and Alan A. Stocker (2021)
 
 **Neural Prior**
 - Run `/neural/fitDataGauss.m` for tuning curve fitting and compute Fisher information
-- Data for individual neurons can be found under `/neural/DeAngelis` courtesy of Dr. Greg DeAngelis at URochester
+- Data for individual neurons can be found under `/neural/DeAngelis` courtesy of Dr. Greg DeAngelis
 
