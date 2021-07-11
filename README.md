@@ -9,9 +9,9 @@ https://youtu.be/W5DH4h2dH8Y
 ## Code Usage
 **Behavior Prior Analysis**
 - Run `/behavior/mainOpt.m` for model fitting and extracting the behavior prior
+- Run `/behavior/plotPsycurves.m` for plotting psychometric curves of the model
 - Subjects psychophysical data can be found under `/behavior/NN2006` 
 - `model_para.mat` contains the best fit parameters for individual subjects
-
 
 **Neural Prior Analysis**
 - Run `/neural/fitDataGauss.m` for tuning curve fitting and compute Fisher information
