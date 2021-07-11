@@ -1,9 +1,9 @@
 function [estimates, probDnst] = mappingEstimator(priorProb, intNoise, vProb)
-% MAPPINGESTIMATOR Compute p(v'|v) with efficient 
-%            coding constrain and transformation to 
+% MAPPINGESTIMATOR Compute p(v'|v) with efficient
+%            coding constrain and transformation to
 %            the internal space
 
-% Noise distributed according to efficient coding principle 
+% Noise distributed according to efficient coding principle
 % J(theta) in prop to prior probability
 % Extended sensory space
 
@@ -12,14 +12,14 @@ stmSpc = -100 : stepSize : 100;
 prior  = priorProb(stmSpc);
 
 % Mapping from measurement to (homogeneous) sensory space
-F = cumtrapz(stmSpc, prior);
+F = cumtrapz(stmSpc, prior + 2.5e-3);
 snsMeasurement = interp1(stmSpc, F, vProb, 'linear','extrap');
 
 % P(m | theta), expressed in sensory space
-estLB = max(0, snsMeasurement - 4 * intNoise);
-estUB = min(1, snsMeasurement + 4 * intNoise);
+estLB = max(min(F), snsMeasurement - 4 * intNoise);
+estUB = min(max(F), snsMeasurement + 4 * intNoise);
 
-% even grid in internal space 
+% even grid in internal space
 % measurement distribution in internal space
 sampleSize = 500; sampleStepSize  = (estUB - estLB) / sampleSize;
 estDomainInt = estLB : sampleStepSize : estUB;
@@ -38,13 +38,13 @@ invExtDomain = interp1(stmSpc, F, estDomainExt, 'linear','extrap');
 extPrior = priorProb(estDomainExt);
 
 % Compute an estimate for each measurement
-likelihoodDist = ... 
+likelihoodDist = ...
     exp(-0.5 * ((invExtDomain - invExtDomain')./ intNoise).^2) ./ (sqrt(2*pi) .* intNoise);
 score = likelihoodDist .* extPrior;
 
 % L0 loss, posterior Mode
 % estDomainExt -> estimate & invExtDomain -> estimate
-[~, idx]  = max(score, [], 2); 
+[~, idx]  = max(score, [], 2);
 estimates = estDomainExt(idx);
 
 % estDomainInt -> estimate

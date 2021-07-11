@@ -1,5 +1,5 @@
 function negLikelihood = afcCostfunc(prior, subjectData, noisePara)
-%AFCCOSTFUN Compute the negative log likelihood over the whole dataset     
+%AFCCOSTFUN Compute the negative log likelihood over the whole dataset
 
 cstLevel   = [0.05, 0.075, 0.1, 0.2, 0.4, 0.5, 0.8];
 noiseLevel = noisePara(1 : length(cstLevel));
@@ -18,8 +18,8 @@ for i = 1 : length(refCsts)
     refCorst = refCsts(i);
     refNoise = noiseLevel(cstLevel == refCorst);
     llhds = zeros(1, length(refSpeed));
-    parfor j = 1 : length(refSpeed)        
-        refV  = refSpeed(j);        
+    parfor j = 1 : length(refSpeed)
+        refV  = refSpeed(j);
         % Test stimulus for one reference stimulus
         testData = subjectData([3, 4, 9], subjectData(1, :) == refV ...
             & subjectData(2, :) == refCorst);
