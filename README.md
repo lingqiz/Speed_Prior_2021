@@ -1,12 +1,15 @@
 # Data and Analysis Code
-**Prior expectations in visual speed perception 
-quantitatively predict encoding characteristics of neurons in area MT**  
-Ling-Qi Zhang, Alan A. Stocker (2021)  
+**Prior expectations in visual speed perception quantitatively    
+predict encoding characteristics of neurons in area MT**  
+Ling-Qi Zhang and Alan A. Stocker (2021)  
 
-** Behavior Prior
-- run /behavior/mainOpt.m for model fitting 
-- subjects psychophysical data can be found under /behavior/NN2006
 
-** Neural Prior
-- run /neural/fitDataGauss.m for tuning curve fitting and compute Fisher information
-- data for individual neurons can be found under /neural/DeAngelis
+**Behavior Prior**
+- Run `/behavior/mainOpt.m` for model fitting 
+- Subjects psychophysical data can be found under /behavior/NN2006
+
+
+**Neural Prior**
+- Run `/neural/fitDataGauss.m` for tuning curve fitting and compute Fisher information
+- Data for individual neurons can be found under /neural/DeAngelis courtesy of Dr. Greg DeAngelis at URochester
+
