@@ -1,6 +1,6 @@
 # Data and Analysis Code
-**Prior expectations in visual speed perception quantitatively    
-predict encoding characteristics of neurons in area MT**  
+**Prior expectations in visual speed perception predict    
+encoding characteristics of neurons in area MT**  
 Ling-Qi Zhang and Alan A. Stocker (2021)  
 
 For a quick tour of our project, you can see our VSS 2021 Poster:  
