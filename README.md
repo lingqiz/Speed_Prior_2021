@@ -14,7 +14,9 @@ https://youtu.be/W5DH4h2dH8Y
 - `model_para.mat` contains the best fit parameters for individual subjects
 
 **Neural Prior Analysis**
-- Run `/neural/fitDataGauss.m` for tuning curve fitting and compute Fisher information
+- Run `/neural/fitDataGauss.m` for tuning curve fitting 
+- Run `popuFisher.m` for the analysis of population Fisher Information (FI)
+- Run `FisherCtrl.m` for additional analysis of FI with alternative models (e.g., fano Factor, noise correlation)
 - Data for individual neurons can be found under `/neural/DeAngelis` courtesy of Dr. Greg DeAngelis
 
 ## Contact 

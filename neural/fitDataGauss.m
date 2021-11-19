@@ -20,6 +20,7 @@ scatter(neurData.speed_values, neurData.response_values, 200, 'k', 'LineWidth', 
 
 nRand = 0;
 [parameter, func] = fitGauss(neurData.speed_values, neurData.response_values, 'rmse', 'fminsearch', nRand);
+fano = fanoFactor(neurData.speed_values, neurData.response_values);
 
 axisLim = xlim;
 xRange = 0.0 : 0.05 : 35;
@@ -68,6 +69,7 @@ showPlot = false;
 fitRSquared = zeros(nNeuron, 1);
 rSquaredAvg = zeros(nNeuron, 1);
 fitPara = zeros(nNeuron, nParas);
+fano = zeros(nNeuron, 1);
 
 files = dir('./DeAngelis/*.mat');
 idx = 1;
@@ -83,6 +85,8 @@ for file = files'
     [parameter, func, rSquared] = fitGauss(neurData.speed_values, neurData.response_values, 'rmse', 'fminsearch', nRand);
     fitRSquared(idx) = rSquared;
     fitPara(idx, :) = parameter;
+
+    fano(idx) = fanoFactor(neurData.speed_values, neurData.response_values);
     
     speed = unique(neurData.speed_values);
     response = [];
