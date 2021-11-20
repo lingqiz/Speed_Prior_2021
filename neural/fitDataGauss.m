@@ -81,7 +81,7 @@ for file = files'
         scatter(neurData.speed_values, neurData.response_values, 'k');
     end
     
-    nRand = 5;
+    nRand = 2;
     [parameter, func, rSquared] = fitGauss(neurData.speed_values, neurData.response_values, 'rmse', 'fminsearch', nRand);
     fitRSquared(idx) = rSquared;
     fitPara(idx, :) = parameter;
@@ -106,7 +106,6 @@ for file = files'
     end
     
     idx = idx + 1;
-    
 end
 
 %% Goodness-of-fit/R-squared
@@ -119,3 +118,10 @@ subplot(1, 2, 2);
 histogram(rSquaredAvg); hold on;
 plot(median(rSquaredAvg) * ones(1, 2), ylim(), '--k', 'LineWidth', 2);
 xlim([0, 1]); title(strcat('R squared:', num2str(median(rSquaredAvg))));
+
+%% Fano factor
+figure(); 
+boxplot(rmoutliers(fano), 'Widths', 0.25);
+
+xticks([ ]); box off;
+ylabel('Fano Factor');
