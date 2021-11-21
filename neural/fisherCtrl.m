@@ -7,14 +7,15 @@ xRange = 0.5 : 0.01 : 40;
 totalFisher = zeros(1, length(xRange));
 
 for idx = 1 : nNeuron
-    parameter = fitPara(idx, :);
-    tuning = @(stim) tuningGauss(parameter(1), parameter(2), parameter(3), parameter(4), parameter(5), stim);
-    
+    para = fitPara(idx, :);
+    tuning = @(stim) tuningGauss(para(1), para(2), para(3), ...
+                                 para(4), para(5), stim);
+
     % Fisher information
     [fx, dfdx] = tuning(xRange);
     fisher = abs(dfdx) ./ sqrt(fx);
-    
-    totalFisher = totalFisher + fisher .^ 2;    
+
+    totalFisher = totalFisher + fisher .^ 2;
 end
 
 normcst = trapz(xRange, sqrt(totalFisher)) * 2;
@@ -31,14 +32,15 @@ xRange = 0.5 : 0.01 : 40;
 totalFisher = zeros(1, length(xRange));
 
 for idx = 1 : nNeuron
-    parameter = fitPara(idx, :);
-    tuning = @(stim) tuningGauss(parameter(1), parameter(2), parameter(3), parameter(4), parameter(5), stim);
-    
+    para = fitPara(idx, :);
+    tuning = @(stim) tuningGauss(para(1), para(2), para(3), ...
+                                 para(4), para(5), stim);
+
     % Fisher information
     [fx, dfdx] = tuning(xRange);
     fisher = abs(dfdx) ./ sqrt(fano(idx) * fx);
-    
-    totalFisher = totalFisher + fisher .^ 2;    
+
+    totalFisher = totalFisher + fisher .^ 2;
 end
 
 normcst = trapz(xRange, sqrt(totalFisher)) * 2;
@@ -55,14 +57,15 @@ xRange = 0.5 : 0.01 : 40;
 totalFisher = zeros(1, length(xRange));
 
 for idx = 1 : nNeuron
-    parameter = fitPara(idx, :);
-    tuning = @(stim) tuningGauss(parameter(1), parameter(2), parameter(3), parameter(4), parameter(5), stim);
-    
+    para = fitPara(idx, :);
+    tuning = @(stim) tuningGauss(para(1), para(2), para(3), ...
+                                 para(4), para(5), stim);
+
     % Fisher information
     [fx, dfdx] = tuning(xRange);
     fisher = abs(dfdx);
-    
-    totalFisher = totalFisher + fisher .^ 2;    
+
+    totalFisher = totalFisher + fisher .^ 2;
 end
 
 normcst = trapz(xRange, sqrt(totalFisher)) * 2;
