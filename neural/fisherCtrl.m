@@ -75,7 +75,8 @@ plot(log(xRange), log(normFisher), 'LineWidth', 2, 'Color', 'black');
 logPref = log(fitPara(:, 5) + 0.1);
 corrMtx = zeros(nNeuron, nNeuron);
 
-L = 0.1;
+% 0.5, 1.0, 5.0
+L = 5.0;
 for i = 1:nNeuron
     for j = 1:nNeuron
         if i == j
@@ -114,6 +115,22 @@ normFisher = sqrt(totalFisher) / normcst;
 % Fisher information
 figure(1); hold on;
 plot(log(xRange), log(normFisher), 'LineWidth', 2);
+
+%% Corr hist
+figure(2);
+indexMtx = triu(~eye(nNeuron));
+corrMtx = corrMtx(indexMtx);
+
+hst = histogram(corrMtx(:), 30, 'Normalization', 'probability');
+hst.FaceColor = [0.25, 0.25, 0.25];
+hst.EdgeColor = [1.0, 1.0, 1.0];
+
+xlim([0, 1]);
+xticks([0 : 0.2 : 1]);
+set(gca, 'TickDir', 'out'); box off;
+
+axisObj = gca;
+axisObj.LineWidth = 0.2;
 
 %% Figure format
 labelPos = [0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0];
