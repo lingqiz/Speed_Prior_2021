@@ -16,7 +16,8 @@ https://youtu.be/W5DH4h2dH8Y
 **Neural Prior Analysis**
 - Run `/neural/fitDataGauss.m` for tuning curve fitting 
 - Run `popuFisher.m` for the analysis of population Fisher Information (FI)
-- Run `FisherCtrl.m` for additional analysis of FI with alternative models (e.g., fano Factor, noise correlation)
+- Run `FisherCtrl.m` for additional analysis of FI with alternative models
+- Run `fisherCorr.m` for FI analysis with a limited-range correlation model
 - Data for individual neurons can be found under `/neural/DeAngelis` courtesy of Dr. Greg DeAngelis
 
 ## Contact 
