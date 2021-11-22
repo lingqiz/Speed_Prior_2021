@@ -42,13 +42,13 @@ for L = [0.5, 1.0, 2.0]
             if i == j
                 corrMtx(i, j) = 1.0;
             else
-                prefDist = abs(logPref(i) - logPref(j)) + 0.01;
+                prefDist = abs(logPref(i) - logPref(j)) + 1e-3;
                 corrMtx(i, j) = exp(-prefDist / L);
             end
         end
     end
 
-    % check the cond number of correlation matrix
+    % check the cond number of corr matrix
     disp(cond(corrMtx));
 
     % Eigen Decomposition
@@ -59,12 +59,12 @@ for L = [0.5, 1.0, 2.0]
 
     V = V(:, idx);
 
-    % a low-rank approximation that captures 97.5% variance
+    % a low-rank approximation that captures 99.7% variance
     cumEigval = sort(unique(cumsum(D / sum(D))));
-    cutOff = floor(interp1(cumEigval, 1:length(cumEigval), 0.975));    
+    cutOff = floor(interp1(cumEigval, 1:length(cumEigval), 0.997));    
 
     % only inverting the submatrix
-    corrInv = V(1:cutOff, :)' * diag(1 ./ D(1:cutOff)) * V(1:cutOff, :);
+    corrInv = V(1:cutOff, :)' * diag(1 ./ D(1:cutOff)) * V(1:cutOff, :);    
 
     %% Fisher information
     totalFisher = diag(deriMtx' * corrInv * deriMtx);
