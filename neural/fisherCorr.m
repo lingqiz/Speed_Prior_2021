@@ -56,9 +56,11 @@ for L = [0.5, 1.0, 2.5]
 
     V = V(:, idx);    
 
-    % Inverse of a low-rank approximation that captures 97.5% variance
+    % a low-rank approximation that captures 97.5% variance
     cumEigval = sort(unique(cumsum(D / sum(D))));
     cutOff = floor(interp1(cumEigval, 1:length(cumEigval), 0.975));
+
+    % only inverting the submatrix
     corrInv = V(1:cutOff, :)' * diag(1 ./ D(1:cutOff)) * V(1:cutOff, :);
 
     %% Fisher information
