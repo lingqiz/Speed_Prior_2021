@@ -64,7 +64,7 @@ for L = [0.5, 1.0, 2.0]
     cutOff = floor(interp1(cumEigval, 1:length(cumEigval), 0.997));    
 
     % only inverting the submatrix
-    corrInv = V(1:cutOff, :)' * diag(1 ./ D(1:cutOff)) * V(1:cutOff, :);    
+    corrInv = V(:, 1:cutOff) * diag(1 ./ D(1:cutOff)) * V(:, 1:cutOff)';    
 
     %% Fisher information
     totalFisher = diag(deriMtx' * corrInv * deriMtx);
