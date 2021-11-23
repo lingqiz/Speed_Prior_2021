@@ -7,6 +7,8 @@ For a quick tour of our project, you can see our VSS 2021 Poster:
 https://youtu.be/W5DH4h2dH8Y
 
 ## Code Usage
+- Run `comparePrior.m` to plot the behavior and neural prior
+
 **Behavior Prior Analysis**
 - Run `/behavior/mainOpt.m` for model fitting and extracting the behavior prior
 - Run `/behavior/plotPsycurves.m` for plotting psychometric curves of the model
