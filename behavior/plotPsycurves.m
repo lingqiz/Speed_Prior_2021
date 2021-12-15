@@ -1,3 +1,12 @@
+% There are a total of five subjects,
+% we used sub 1, 2, 4, 5 in the paper, since 
+% sub 3 only has a subset of the data
+
+% change SUB#.mat in the load command,
+% and subject#, paraSub#, weibullFit# in the 
+% plotPsycurve command to plot the 
+% corresponding subject
+
 dataDir = './NN2006/';
 load(strcat(dataDir, 'SUB1.mat'));
 
