@@ -13,7 +13,7 @@ prior  = priorProb(stmSpc);
 
 % Mapping from measurement to (homogeneous) sensory space
 F = cumtrapz(stmSpc, prior + 2.5e-3);
-snsMeasurement = interp1(stmSpc, F, vProb, 'linear','extrap');
+snsMeasurement = interp1(stmSpc, F, vProb, 'linear', 'extrap');
 
 % P(m | theta), expressed in sensory space
 estLB = max(min(F), snsMeasurement - 4 * intNoise);
@@ -26,13 +26,13 @@ estDomainInt = estLB : sampleStepSize : estUB;
 measurementDist = normpdf(estDomainInt, snsMeasurement, intNoise);
 
 % even grid in external space
-estLBext = interp1(F, stmSpc, estLB, 'linear','extrap');
-estUBext = interp1(F, stmSpc, estUB, 'linear','extrap');
+estLBext = interp1(F, stmSpc, estLB, 'linear', 'extrap');
+estUBext = interp1(F, stmSpc, estUB, 'linear', 'extrap');
 sampleStepSize  = (estUBext - estLBext) / sampleSize;
 
 % corresponding points in internal space
 estDomainExt = estLBext : sampleStepSize : estUBext;
-invExtDomain = interp1(stmSpc, F, estDomainExt, 'linear','extrap');
+invExtDomain = interp1(stmSpc, F, estDomainExt, 'linear', 'extrap');
 
 % prior for estimation
 extPrior = priorProb(estDomainExt);
@@ -48,10 +48,10 @@ score = likelihoodDist .* extPrior;
 estimates = estDomainExt(idx);
 
 % estDomainInt -> estimate
-estimatesInt = interp1(invExtDomain, estimates, estDomainInt, 'linear','extrap');
+estimatesInt = interp1(invExtDomain, estimates, estDomainInt, 'linear', 'extrap');
 
 % Smooth with polynomial
-warning('off','all');
+warning('off', 'all');
 nOrder   = 5;
 plnm     = polyfit(estDomainInt, estimatesInt, nOrder);
 
