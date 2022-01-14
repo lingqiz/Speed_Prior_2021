@@ -9,10 +9,12 @@ https://youtu.be/W5DH4h2dH8Y
 - Run `comparePrior.m` to plot the behavior and neural prior
 
 **Data/Model Fits for Individual Subject**
-- Run `/behavior/plotPsycurves.m` for plotting the full display of psychometric curves of the data and model fits  
-- Here is an example of the full dataset for subject #1 
+- Run `/behavior/plotPsycurves.m` for plotting the full set of psychometric curves of the data and model fits  
+- Here is an example of the full dataset for subject #1. 
 <img src="Sub1-1.png" width="800" vspace = "25">
 <img src="Sub1-2.png" width="800" vspace = "25">  
+
+Contrast of the reference stimulus was 0.5 for the top panel, and 0.075 for the bottom panel. Each row corresponds to a different reference speed as indicated on the left, and each column corresponds to a different test contrast as indicated on top. The dashed black curve represents a Weibull fit to the data of each individual condition, and the blue curve is the Bayesian model fit to the entire data set. The size of the circle is proportional to the number of trials at that value.    
 
 **Behavior Prior Analysis (Behavioral Prior)**
 - Run `/behavior/mainOpt.m` for model fitting and extracting the behavior prior
