@@ -6,10 +6,10 @@ For a quick tour of our project, you can see our VSS 2021 Poster:
 https://youtu.be/W5DH4h2dH8Y
 
 ## Code Usage
-- Run `comparePrior.m` to plot the behavior and neural prior
+- Run `comparePrior.m` to plot and compare the behavior and neural prior
 
 **Data/Model Fits for Individual Subject**
-- Run `/behavior/plotPsycurves.m` for plotting the full set of psychometric curves of the data and model fits  
+- Run `/behavior/plotPsycurves.m` for plotting the full set of psychometric curves of the data and model fits for invididual subjects  
 - Here is an example for subject #1 
 <img src="Sub1-1.png" width="800" vspace = "25">
 <img src="Sub1-2.png" width="800" vspace = "25">     
