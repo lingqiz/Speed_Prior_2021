@@ -1,7 +1,7 @@
 # Data and Analysis Code
 [![DOI:10.1523/JNEUROSCI.1920-21.2022](https://zenodo.org/badge/DOI/10.1523/JNEUROSCI.1920-21.2022.svg)](https://doi.org/10.1523/JNEUROSCI.1920-21.2022)  
 **Prior expectations in visual speed perception predict encoding characteristics of neurons in area MT**  
-Ling-Qi Zhang and Alan A. Stocker (2021)   
+Ling-Qi Zhang and Alan A. Stocker, Journal of Neuroscience (2022)  
 https://www.jneurosci.org/content/42/14/2951
 
 For a quick tour of our project, you can see our VSS 2021 Poster:  
